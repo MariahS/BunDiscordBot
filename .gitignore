@@ -1,0 +1,5 @@
+
+*.lock
+BunBot/.vs/BunBunBot/v15/Server/sqlite3/storage.ide
+BunBot/.vs/BunBunBot/v15/Server/sqlite3/storage.ide-shm
+BunBot/.vs/BunBunBot/v15/Server/sqlite3/storage.ide-wal
