@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace BunBun.Discord.Model
+namespace BunBun.Discord.Model.Xiv
 {
     public class Item
     {

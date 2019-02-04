@@ -22,7 +22,7 @@ namespace BunBun.Discord
                 client.Log += LogAsync;
                 services.GetRequiredService<CommandService>().Log += LogAsync;
 
-                await client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("token"));
+                await client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("discordToken"));
                 await client.StartAsync();
 
                 await services.GetRequiredService<CommandHandlingService>().InitializeAsync();
@@ -45,6 +45,7 @@ namespace BunBun.Discord
                 .AddSingleton<CommandService>()
                 .AddSingleton<CommandHandlingService>()
                 .AddSingleton<XivAppService>()
+                .AddSingleton<FfLogsService>()
                 .BuildServiceProvider();
         }
     }

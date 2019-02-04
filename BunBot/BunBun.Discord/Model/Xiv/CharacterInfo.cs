@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BunBun.Discord.Model
+namespace BunBun.Discord.Model.Xiv
 {
     public class CharacterInfo
     {

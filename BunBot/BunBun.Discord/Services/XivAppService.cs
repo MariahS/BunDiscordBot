@@ -1,4 +1,4 @@
-﻿using BunBun.Discord.Model;
+﻿using BunBun.Discord.Model.Xiv;
 using Flurl.Http;
 using Newtonsoft.Json;
 using System;
@@ -8,15 +8,14 @@ namespace BunBun.Discord.Services
 {
     public class XivAppService
     {
-        private static readonly string key = Environment.GetEnvironmentVariable("apiKey");
+        private static readonly string key = Environment.GetEnvironmentVariable("xivKey");
 
         public MarketItem.ItemData GetItemMarketInfo(int itemId)
         {
             // limit list by 10
-            string link = "https://xivapi.com/market/hyperion/items/" + itemId + "&limit=10" + "?" + key;
-            HttpResponseMessage req = link.GetAsync().Result;
-            var results = req.Content.ReadAsStringAsync().Result;
-            var r = JsonConvert.DeserializeObject<MarketItem.ItemData>(results);
+            string url = "https://xivapi.com/market/hyperion/items/" + itemId + "&limit=10" + "?" + key;
+            HttpResponseMessage req = url.GetAsync().Result;
+            var r = JsonConvert.DeserializeObject<MarketItem.ItemData>(req.Content.ReadAsStringAsync().Result);
 
             return r;
         }
@@ -32,8 +31,8 @@ namespace BunBun.Discord.Services
                 itemName = itemName.Replace(" ", "+");
             }
 
-            string link = "https://xivapi.com/search?string=" + itemName + "&" + key;
-            HttpResponseMessage req = link.GetAsync().Result;
+            string url = "https://xivapi.com/search?string=" + itemName + "&" + key;
+            HttpResponseMessage req = url.GetAsync().Result;
             var r = JsonConvert.DeserializeObject<Search>(req.Content.ReadAsStringAsync().Result);
             searchItem = r;
 
@@ -67,5 +66,14 @@ namespace BunBun.Discord.Services
             return r;
         }
 
+        public LodestoneCharacter.RootObject GetCharacter(string name, string server)
+        {
+            name = name.Replace(" ","+");
+            string url = "https://xivapi.com/character/search?name=" + name + "&server=" + server + "&" + key;
+            HttpResponseMessage req = url.GetAsync().Result;
+            var r = JsonConvert.DeserializeObject<LodestoneCharacter.RootObject>(req.Content.ReadAsStringAsync().Result);
+
+            return r;
+        }
     }
 }

@@ -3,8 +3,9 @@
     "BunBun.Discord": {
       "commandName": "Project",
       "environmentVariables": {
-        "apiKey": "key=623adedc57a14017856e08a6",
-        "token": "NTM5ODQ4OTQyMjkzMzUyNDg4.DzMxig.kafBc0_BY2ZPagqQqSDSGP8NIXA"
+        "fflogsKey": "fe7f9ee9db7125d3d17ee8acb3c46f73",
+        "discordToken": "NTM5ODQ4OTQyMjkzMzUyNDg4.DzMxig.kafBc0_BY2ZPagqQqSDSGP8NIXA",
+        "xivKey": "key=623adedc57a14017856e08a6"
       }
     }
   }

@@ -1,0 +1,9 @@
+{
+  "runtimeOptions": {
+    "additionalProbingPaths": [
+      "C:\\Users\\Shin-Ra Mobile\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\Shin-Ra Mobile\\.nuget\\packages",
+      "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+    ]
+  }
+}
