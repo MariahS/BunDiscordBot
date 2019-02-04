@@ -1,0 +1,11 @@
+C:\Users\Shin-Ra Mobile\source\repos\FFXIV.Achievements\BunBun.Discord\bin\Debug\netcoreapp2.1\BunBun.Discord.deps.json
+C:\Users\Shin-Ra Mobile\source\repos\FFXIV.Achievements\BunBun.Discord\bin\Debug\netcoreapp2.1\BunBun.Discord.runtimeconfig.json
+C:\Users\Shin-Ra Mobile\source\repos\FFXIV.Achievements\BunBun.Discord\bin\Debug\netcoreapp2.1\BunBun.Discord.runtimeconfig.dev.json
+C:\Users\Shin-Ra Mobile\source\repos\FFXIV.Achievements\BunBun.Discord\bin\Debug\netcoreapp2.1\BunBun.Discord.dll
+C:\Users\Shin-Ra Mobile\source\repos\FFXIV.Achievements\BunBun.Discord\obj\Debug\netcoreapp2.1\BunBun.Discord.csprojAssemblyReference.cache
+C:\Users\Shin-Ra Mobile\source\repos\FFXIV.Achievements\BunBun.Discord\obj\Debug\netcoreapp2.1\BunBun.Discord.csproj.CoreCompileInputs.cache
+C:\Users\Shin-Ra Mobile\source\repos\FFXIV.Achievements\BunBun.Discord\obj\Debug\netcoreapp2.1\BunBun.Discord.AssemblyInfoInputs.cache
+C:\Users\Shin-Ra Mobile\source\repos\FFXIV.Achievements\BunBun.Discord\obj\Debug\netcoreapp2.1\BunBun.Discord.AssemblyInfo.cs
+C:\Users\Shin-Ra Mobile\source\repos\FFXIV.Achievements\BunBun.Discord\bin\Debug\netcoreapp2.1\BunBun.Discord.pdb
+C:\Users\Shin-Ra Mobile\source\repos\FFXIV.Achievements\BunBun.Discord\obj\Debug\netcoreapp2.1\BunBun.Discord.dll
+C:\Users\Shin-Ra Mobile\source\repos\FFXIV.Achievements\BunBun.Discord\obj\Debug\netcoreapp2.1\BunBun.Discord.pdb
