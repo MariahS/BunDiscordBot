@@ -1,6 +1,9 @@
-﻿using BunBun.Discord.Services;
+﻿using BunBun.Discord.Model.FfLogs;
+using BunBun.Discord.Services;
 using Discord;
 using Discord.Commands;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace BunBun.Discord.Modules
@@ -20,25 +23,40 @@ namespace BunBun.Discord.Modules
         public async Task GetParse(string server, [Remainder] string name)
         {
             string reply = "";
+            
             // Get parsing information
             var characterParse = _ffLogsService.GetParseRanking(name, server);
-            // Get character information
-            var character = _xivAppService.GetCharacter(name, server);
-            
-            var eb = new EmbedBuilder();
-
-            eb.Title = characterParse[0].characterName;
-            eb.ThumbnailUrl = character.Results[0].Avatar;
-
-            // set a minimum of results
-            // specify class
-            foreach (var parse in characterParse)
+            if (characterParse.Count > 0)
             {
-                reply = parse.total + " as " + parse.spec;
-                eb.AddField(parse.encounterName, reply);
+                // Get character information
+                var character = _xivAppService.GetCharacter(name, server);
+                var parseGroup = _ffLogsService.GroupParses(characterParse);
+
+
+                var eb = new EmbedBuilder();
+
+                eb.Title = characterParse[0].characterName;
+                eb.ThumbnailUrl = character.Results[0].Avatar;
+
+               
+                foreach (var group in parseGroup)
+                {
+                    var replyString = new List<string>();
+                    var section = group.Select(x => new { x.encounterName, x.spec, x.total }).ToList();
+
+                    foreach (var record in section)
+                    {
+                        reply = "\t\u2022 " + record.total + " as " + record.spec;
+                        replyString.Add(reply);
+                    }
+
+                    eb.AddField(section[0].encounterName, string.Join("\n", replyString));
+                }
+
+                await Context.Channel.SendMessageAsync("", false, eb.Build());
             }
-            
-            await Context.Channel.SendMessageAsync("", false, eb.Build());
+
+            await Context.Channel.SendMessageAsync("Cannot find user on fflogs. :c");
         }
 
     }

@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BunBun.Discord.Services
 {
@@ -19,6 +20,16 @@ namespace BunBun.Discord.Services
             var r = JsonConvert.DeserializeObject<List<CharacterParse.Results>>(req.Content.ReadAsStringAsync().Result);
 
             return r;
+        }
+
+        public List<IGrouping<CharacterParse.Results, CharacterParse.Results>> GroupParses(List<CharacterParse.Results> parses)
+        {
+            
+            var comparer = new HelperExtentions.CharacterParseComparer();
+            var duplicates = parses.GroupBy(x => x, comparer)
+                .ToList();
+
+            return duplicates;
         }
     }
 }

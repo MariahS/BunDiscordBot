@@ -43,8 +43,9 @@ namespace BunBun.Discord.Modules
             var eb = new EmbedBuilder();
             eb.Title = "Commands";
             eb.Description = "I don't have many commands yet but if you feed me a carrot, I would be happy. c: Just @ me with the command and I can help ya!";
-            eb.AddField("1. help","I tell you the helpful stuff");
-            eb.AddField("2. market item","Replace item with whatever item you wanna search on the market board. I tell you the prices.");
+            eb.AddField("\t\u2022 help", "I tell you the helpful stuff");
+            eb.AddField("\t\u2022 market [item]", "Replace [item] with whatever item you wanna search on the market board. I tell you the prices.");
+            eb.AddField("\t\u2022 parse [server] [character]", "Replace [server] and [character] in your search and I can tell you if they good or not. :wink:");
 
             await Context.Channel.SendMessageAsync("", false, eb.Build());
         }
