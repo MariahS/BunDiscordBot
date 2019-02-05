@@ -1,4 +1,4 @@
 # To Do List
-1. Add parses to xiv app
+1. Error handling for api calls
 2. Enhance search options
 3. Enhance response messages
