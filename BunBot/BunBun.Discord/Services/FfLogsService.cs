@@ -31,5 +31,12 @@ namespace BunBun.Discord.Services
 
             return duplicates;
         }
+
+        public CharacterParse.Results GetBestParseResults(List<CharacterParse.Results> parses)
+        {
+            parses = parses.OrderByDescending(x => x.percentile).ToList();
+
+            return parses.FirstOrDefault();
+        }
     }
 }

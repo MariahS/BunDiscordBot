@@ -14,10 +14,12 @@ namespace BunBun.Discord.Modules
         {
             _ffLogsService = new FfLogsService();
             _xivAppService = new XivAppService();
+            _extentionHelper = new HelperExtentions();
         }
 
         public FfLogsService _ffLogsService { get; set; }
         public XivAppService _xivAppService { get; set; }
+        public HelperExtentions _extentionHelper { get; set; }
 
         [Command("parse")]
         public async Task GetParse(string server, [Remainder] string name)
@@ -63,5 +65,38 @@ namespace BunBun.Discord.Modules
             
         }
 
+        [Command("BestParse")]
+        public async Task GetBestParse(string server, [Remainder] string name)
+        {
+            string reply = "";
+            var replyString = new List<string>();
+            // Get parsing information
+            var characterParse = _ffLogsService.GetParseRanking(name, server);
+            if (characterParse.Count > 0)
+            {
+                // Get character information
+                var character = _xivAppService.GetCharacter(name, server);
+                var bestParse = _ffLogsService.GetBestParseResults(characterParse);
+                var percentile = _extentionHelper.PercentileClassification(bestParse.percentile);
+                var iconCode = _extentionHelper.IconCode(percentile);
+                string thumbnail = character.Results[0].Avatar.Replace("0_96x96", iconCode);
+
+                
+                var eb = new EmbedBuilder();
+                eb.Title = characterParse[0].characterName;
+                eb.ThumbnailUrl = thumbnail; //thumbnail edit here depending on stats of parse
+                reply = "\t\u2022 " + bestParse.total + " as " + bestParse.spec;
+                replyString.Add(reply);
+                replyString.Add("\t\u2022 Percentile: " + bestParse.percentile + " " + percentile);
+                eb.AddField(bestParse.encounterName,  string.Join("\n", replyString));              
+
+                await Context.Channel.SendMessageAsync("", false, eb.Build());
+            }
+            else
+            {
+                await Context.Channel.SendMessageAsync("Cannot find user on fflogs. :c");
+            }
+
+        }
     }
 }
