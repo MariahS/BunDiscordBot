@@ -51,8 +51,8 @@ namespace BunBun.Discord.Services
 
             // the command failed, let's notify the user that something happened.
             // commented out while live
-            await context.Channel.SendMessageAsync($"error: {result.ToString()}");
-            //await context.Channel.SendMessageAsync($"Sowwy, der's an error. :c");
+            //await context.Channel.SendMessageAsync($"error: {result.ToString()}");
+            await context.Channel.SendMessageAsync($"Sowwy, der's an error. :c");
         }
     }
 }

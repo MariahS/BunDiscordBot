@@ -55,8 +55,12 @@ namespace BunBun.Discord.Modules
 
                 await Context.Channel.SendMessageAsync("", false, eb.Build());
             }
+            else
+            {
+                await Context.Channel.SendMessageAsync("Cannot find user on fflogs. :c");
+            }
 
-            await Context.Channel.SendMessageAsync("Cannot find user on fflogs. :c");
+            
         }
 
     }
