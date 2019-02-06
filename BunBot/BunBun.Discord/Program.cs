@@ -46,6 +46,7 @@ namespace BunBun.Discord
                 .AddSingleton<CommandHandlingService>()
                 .AddSingleton<XivAppService>()
                 .AddSingleton<FfLogsService>()
+                .AddSingleton<HelperExtentions>()
                 .BuildServiceProvider();
         }
     }
