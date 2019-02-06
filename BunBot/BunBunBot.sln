@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.28307.106
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BunBun.xivApp", "FFXIV.Achievements\BunBun.xivApp.csproj", "{DA6EFB78-40E0-478F-B4A2-F7593C5F5291}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BunBun.Discord", "BunBun.Discord\BunBun.Discord.csproj", "{F9660271-749A-4A6E-8E26-F64DBB0B5D69}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BunBun.Discord", "BunBun.Discord\BunBun.Discord.csproj", "{F9660271-749A-4A6E-8E26-F64DBB0B5D69}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
