@@ -1,6 +1,7 @@
 ﻿using BunBun.Discord.Services;
 using Discord;
 using Discord.Commands;
+using System;
 using System.Threading.Tasks;
 
 namespace BunBun.Discord.Modules
@@ -10,12 +11,14 @@ namespace BunBun.Discord.Modules
         public XivApiModule()
         {
             _apiService = new XivAppService();
+            LodestoneUrl = @"https://na.finalfantasyxiv.com";
         }
 
         public XivAppService _apiService { get; set; }
+        private string LodestoneUrl { get; set; }
 
         [Command("market")]
-        public async Task GetMarketPrices([Remainder] string itemName)
+        public async Task PostMarketPrices([Remainder] string itemName)
         {
             var itemId = _apiService.GetItemIdByName(itemName);
             var item = _apiService.GetItemById(itemId);
@@ -50,6 +53,36 @@ namespace BunBun.Discord.Modules
             }
         }
 
+        // Eventually make this a timed task
+        [Command("news")]
+        public async Task PostLodestoneNews()
+        {
+            var news = _apiService.GetLodestoneNews();
+            var currentDate = DateTime.Now.ToShortDateString();
+
+            foreach (var article in news)
+            {
+                var dt = ConvertUnixToDateTime(article.Time);
+                if (dt.ToShortDateString() == currentDate)
+                {
+                    var eb = new EmbedBuilder();
+                    eb.Title = article.Title;
+                    eb.Url = LodestoneUrl + article.Url;
+                    eb.ImageUrl = article.Banner;
+
+                    await ReplyAsync("", false, eb.Build());
+                }
+            }
+
+            
+        }
+
+        public DateTime ConvertUnixToDateTime(double unixTime)
+        {
+            var dt = new DateTime(1970, 1, 1, 0, 0, 0, 0, DateTimeKind.Utc);
+            dt = dt.AddSeconds(unixTime).ToLocalTime();
+            return dt;
+        }
 
     }
 }

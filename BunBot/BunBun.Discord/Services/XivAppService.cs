@@ -2,6 +2,7 @@
 using Flurl.Http;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 
 namespace BunBun.Discord.Services
@@ -72,6 +73,15 @@ namespace BunBun.Discord.Services
             string url = "https://xivapi.com/character/search?name=" + name + "&server=" + server + "&" + key;
             HttpResponseMessage req = url.GetAsync().Result;
             var r = JsonConvert.DeserializeObject<LodestoneCharacter.RootObject>(req.Content.ReadAsStringAsync().Result);
+
+            return r;
+        }
+
+        public List<LodestoneNews.RootObject> GetLodestoneNews()
+        {
+            string url = "https://xivapi.com/lodestone/news" + "?" + key;
+            HttpResponseMessage req = url.GetAsync().Result;
+            var r = JsonConvert.DeserializeObject<List<LodestoneNews.RootObject>>(req.Content.ReadAsStringAsync().Result);
 
             return r;
         }
