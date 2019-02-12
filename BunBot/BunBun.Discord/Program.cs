@@ -22,9 +22,11 @@ namespace BunBun.Discord
                 client.Log += LogAsync;
                 services.GetRequiredService<CommandService>().Log += LogAsync;
 
+                // Starts up bot on discord
                 await client.LoginAsync(TokenType.Bot, Environment.GetEnvironmentVariable("discordToken"));
                 await client.StartAsync();
 
+                // Starts CommandHandling Services
                 await services.GetRequiredService<CommandHandlingService>().InitializeAsync();
 
                 await Task.Delay(-1);

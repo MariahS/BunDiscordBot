@@ -1,10 +1,12 @@
-﻿using Discord;
+﻿using BunBun.Discord.Modules;
+using Discord;
 using Discord.Commands;
 using Discord.WebSocket;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Reflection;
 using System.Threading.Tasks;
+using System.Timers;
 
 namespace BunBun.Discord.Services
 {
