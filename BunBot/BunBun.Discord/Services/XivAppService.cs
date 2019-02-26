@@ -14,38 +14,33 @@ namespace BunBun.Discord.Services
         public MarketItem.ItemData GetItemMarketInfo(int itemId)
         {
             // limit list by 10
-            string url = "https://xivapi.com/market/hyperion/items/" + itemId + "&limit=10" + "?" + key;
+            string url = "https://xivapi.com/market/hyperion/items/" + itemId + "&limit=15" + "?" + key;
             HttpResponseMessage req = url.GetAsync().Result;
             var r = JsonConvert.DeserializeObject<MarketItem.ItemData>(req.Content.ReadAsStringAsync().Result);
 
             return r;
         }
 
-        public int GetItemIdByName(string itemName)
+        public List<int> GetItemIdByName(string itemName)
         {
-            // Make this more precise
-            // Maybe give a list of related items
-            // And have user select the correct search
+            var idList = new List<int>();
             var searchItem = new Search();
             if (itemName.Contains(" "))
             {
                 itemName = itemName.Replace(" ", "+");
             }
 
-            string url = "https://xivapi.com/search?string=" + itemName + "&" + key;
+            string url = "https://xivapi.com/search?indexes=item&filters=ItemSearchCategory.ID%3E%3D1&columns=ID%2CIcon%2CName%2CLevelItem%2CRarity%2CItemSearchCategory.Name%2CItemSearchCategory.ID%2CItemKind.Name&string=" + itemName + "&limit=5&" + key;
             HttpResponseMessage req = url.GetAsync().Result;
-            var r = JsonConvert.DeserializeObject<Search>(req.Content.ReadAsStringAsync().Result);
-            searchItem = r;
+            var r = JsonConvert.DeserializeObject<IndexedItemSearch>(req.Content.ReadAsStringAsync().Result);
 
-            foreach (var item in searchItem.Results)
+            foreach (var item in r.Results)
             {
-                if (item.Url.Contains("Item"))
-                {
-                    return item.ID;
-                }
+                idList.Add(item.ID);
             }
 
-            return 0;
+            return idList;
+
         }
 
         public Item.RootObject GetItemById(int itemId)
@@ -57,7 +52,7 @@ namespace BunBun.Discord.Services
                 HttpResponseMessage req = url.GetAsync().Result;
                 r = JsonConvert.DeserializeObject<Item.RootObject>(req.Content.ReadAsStringAsync().Result);
             }
-            catch (System.Exception)
+            catch (Exception)
             {
 
                 return r;
