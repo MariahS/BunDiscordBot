@@ -37,7 +37,7 @@ namespace BunBun.Discord.Services
             if (message.Source != MessageSource.User) return;
   
             var argPos = 0;
-            if (!message.HasMentionPrefix(_discord.CurrentUser, ref argPos)) return;
+            if (!message.HasCharPrefix('/', ref argPos)) return;
 
             var context = new SocketCommandContext(_discord, message);
             await _commands.ExecuteAsync(context, argPos, _services);
@@ -53,8 +53,8 @@ namespace BunBun.Discord.Services
 
             // the command failed, let's notify the user that something happened.
             // commented out while live
-            //await context.Channel.SendMessageAsync($"error: {result.ToString()}");
-            await context.Channel.SendMessageAsync($"Sowwy, der's an error. :c");
+            await context.Channel.SendMessageAsync($"error: {result.ToString()}");
+            //await context.Channel.SendMessageAsync($"Sowwy, der's an error. :c");
         }
     }
 }

@@ -78,7 +78,7 @@
           "lib/netstandard2.0/Discord.Net.WebSocket.dll": {}
         }
       },
-      "Flurl/2.8.0": {
+      "Flurl/2.8.1": {
         "type": "package",
         "compile": {
           "lib/netstandard2.0/Flurl.dll": {}
@@ -87,10 +87,10 @@
           "lib/netstandard2.0/Flurl.dll": {}
         }
       },
-      "Flurl.Http/2.4.0": {
+      "Flurl.Http/2.4.1": {
         "type": "package",
         "dependencies": {
-          "Flurl": "2.8.0",
+          "Flurl": "2.8.1",
           "Newtonsoft.Json": "11.0.2",
           "System.Text.Encoding.CodePages": "4.4.0"
         },
@@ -750,14 +750,14 @@
         "lib/netstandard2.0/Discord.Net.WebSocket.xml"
       ]
     },
-    "Flurl/2.8.0": {
-      "sha512": "P79Pqoi+GqVxUcexU9OAI0e5J6u/eRfscRxHqnVdDD7cNhi/OMWgJvdsn56tMlKmOik0P/W7/ZwRgU20up718w==",
+    "Flurl/2.8.1": {
+      "sha512": "RI3e1vOfhtZJNSsrA/5aEAenC60Dmf/8ODXdSOJ9kHwS+EjXGMjLt8AZKhCPqKSaykUIV/M3FLBsf9vQgLxTxw==",
       "type": "package",
-      "path": "flurl/2.8.0",
+      "path": "flurl/2.8.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "flurl.2.8.0.nupkg.sha512",
+        "flurl.2.8.1.nupkg.sha512",
         "flurl.nuspec",
         "lib/net40/Flurl.dll",
         "lib/net40/Flurl.xml",
@@ -769,14 +769,14 @@
         "lib/netstandard2.0/Flurl.xml"
       ]
     },
-    "Flurl.Http/2.4.0": {
-      "sha512": "alaK3NlWrSgIqjQt7A5grfxOVXLoRo2Y/3uQWI+3p/5K3w4VlZPqal49wLU0Ln2vfNLBFmt3hS/Knye3CRmFqQ==",
+    "Flurl.Http/2.4.1": {
+      "sha512": "Pt1ErAK5ABGSiWEBFhbV1anEu11ET5yzvD5LkaWZnr7ezVQbcf7lCN++3lGNszth4z6rPFvUx+potvVY6OZSjw==",
       "type": "package",
-      "path": "flurl.http/2.4.0",
+      "path": "flurl.http/2.4.1",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "flurl.http.2.4.0.nupkg.sha512",
+        "flurl.http.2.4.1.nupkg.sha512",
         "flurl.http.nuspec",
         "lib/net45/Flurl.Http.dll",
         "lib/net45/Flurl.Http.xml",
@@ -1216,7 +1216,7 @@
       ]
     },
     "Microsoft.NETCore.Platforms/2.1.0": {
-      "sha512": "aSTPL94NloSiQVL5Len8wbjFKOnoAX/vOh3s3DF6g3c7GUUMLCDvnBhmA72M2iN2AedyA8hpr7m89kzSAKUnJQ==",
+      "sha512": "GmkKfoyerqmsHMn7OZj0AKpcBabD+GaafqphvX2Mw406IwiJRy1pKcKqdCfKJfYmkRyJ6+e+RaUylgdJoDa1jQ==",
       "type": "package",
       "path": "microsoft.netcore.platforms/2.1.0",
       "files": [
@@ -1491,7 +1491,7 @@
       ]
     },
     "System.ComponentModel.Annotations/4.5.0": {
-      "sha512": "IjDa643EO77A4CL9dhxfZ6zzGu+pM8Ar0NYPRMN3TvDiga4uGDzFHOj/ArpyNxxKyO5IFT2LZ0rK3kUog7g3jA==",
+      "sha512": "UxYQ3FGUOtzJ7LfSdnYSFd7+oEv6M8NgUatatIN2HxNtDdlcvFAf+VIq4Of9cDMJEJC0aSRv/x898RYhB4Yppg==",
       "type": "package",
       "path": "system.componentmodel.annotations/4.5.0",
       "files": [
@@ -1883,7 +1883,7 @@
       ]
     },
     "System.Memory/4.5.1": {
-      "sha512": "vcG3/MbfpxznMkkkaAblJi7RHOmuP7kawQMhDgLSuA1tRpRQYsFSCTxRSINDUgn2QNn2jWeLxv8er5BXbyACkw==",
+      "sha512": "sDJYJpGtTgx+23Ayu5euxG5mAXWdkDb4+b0rD0Cab0M1oQS9H0HXGPriKcqpXuiJDTV7fTp/d+fMDJmnr6sNvA==",
       "type": "package",
       "path": "system.memory/4.5.1",
       "files": [
@@ -2191,7 +2191,7 @@
       ]
     },
     "System.Runtime.CompilerServices.Unsafe/4.5.1": {
-      "sha512": "x/3d5xb+mc9e4I2GOOT+HPRWMZLbYjNN/kYKsb0fyUKcWizn/t1CIrGRLIBhv7H0ptYEt+WTTztdPmwSUMyKig==",
+      "sha512": "Zh8t8oqolRaFa9vmOZfdQm/qKejdqz0J9kr7o2Fu0vPeoH3BL1EOXipKWwkWtLT1JPzjByrF19fGuFlNbmPpiw==",
       "type": "package",
       "path": "system.runtime.compilerservices.unsafe/4.5.1",
       "files": [
@@ -2551,8 +2551,8 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
       "Discord.Net >= 2.0.1",
-      "Flurl >= 2.8.0",
-      "Flurl.Http >= 2.4.0",
+      "Flurl >= 2.8.1",
+      "Flurl.Http >= 2.4.1",
       "Microsoft.Extensions.Logging >= 2.2.0",
       "Microsoft.NETCore.App >= 2.1.0"
     ]
@@ -2604,11 +2604,11 @@
           },
           "Flurl": {
             "target": "Package",
-            "version": "[2.8.0, )"
+            "version": "[2.8.1, )"
           },
           "Flurl.Http": {
             "target": "Package",
-            "version": "[2.4.0, )"
+            "version": "[2.4.1, )"
           },
           "Microsoft.Extensions.Logging": {
             "target": "Package",

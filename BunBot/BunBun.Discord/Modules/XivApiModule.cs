@@ -22,26 +22,29 @@ namespace BunBun.Discord.Modules
         [Command("market")]
         public async Task PostMarketPrices([Remainder] string itemName)
         {
-            var itemIdList = _apiService.GetItemIdByName(itemName);
-            var searchList = new List<string>();
+            // feature is currently down :c
+            //var itemIdList = _apiService.GetItemIdByName(itemName);
+            //var searchList = new List<string>();
 
-            string reply = "";
-            var replyString = new List<string>();
-            var eb = new EmbedBuilder();
+            //string reply = "";
+            //var replyString = new List<string>();
+            //var eb = new EmbedBuilder();
 
-            for (int i = 0; i < itemIdList.Count; i++)
-            {
-                var item = _apiService.GetItemById(itemIdList[i]);
-                int count = i + 1;
-                reply = count.ToString() + " " + item.Name;
-                searchList.Add(item.Name);
-                replyString.Add(reply);
-            }
+            //for (int i = 0; i < itemIdList.Count; i++)
+            //{
+            //    var item = _apiService.GetItemById(itemIdList[i]);
+            //    int count = i + 1;
+            //    reply = count.ToString() + " " + item.Name;
+            //    searchList.Add(item.Name);
+            //    replyString.Add(reply);
+            //}
 
-            ItemSearchList = searchList;
+            //ItemSearchList = searchList;
 
-            eb.AddField("Select the item yer looking fer:", string.Join("\n", replyString));
-            await Context.Channel.SendMessageAsync("", false, eb.Build());
+            //eb.AddField("Select the item yer looking fer:", string.Join("\n", replyString));
+            //await Context.Channel.SendMessageAsync("", false, eb.Build());
+
+            await Context.Channel.SendMessageAsync("My little bunnies at the market are on strike. Check back later for an update. :c");
         }
 
         // Eventually make this a timed task
@@ -78,8 +81,6 @@ namespace BunBun.Discord.Modules
         [Command("select")]
         public async Task SelectItemToSearch(int selection)
         {
-            string reply = "";
-            
             int min = 10;
 
             // check if item list is populated

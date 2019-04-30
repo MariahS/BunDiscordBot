@@ -18,6 +18,7 @@ namespace BunBun.Discord
             using (var services = ConfigureServices())
             {
                 var client = services.GetRequiredService<DiscordSocketClient>();
+                
 
                 client.Log += LogAsync;
                 services.GetRequiredService<CommandService>().Log += LogAsync;
@@ -42,6 +43,8 @@ namespace BunBun.Discord
 
         private ServiceProvider ConfigureServices()
         {
+            var config = new DiscordSocketConfig { MessageCacheSize = 100 };
+
             return new ServiceCollection()
                 .AddSingleton<DiscordSocketClient>()
                 .AddSingleton<CommandService>()
